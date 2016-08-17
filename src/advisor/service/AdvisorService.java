@@ -140,6 +140,7 @@ public class AdvisorService  implements AdvisorServiceInterface{
 		HealthProfileServiceService hpss = new HealthProfileServiceService();
 		HealthProfileService hpservice = hpss.getHealthProfileServicePort();
 		
+		logger.debug("Getting actual weight and height");
 		Measure weight = hpservice.getMeasure(p.getId(), WEIGHT);
 		Measure height = hpservice.getMeasure(p.getId(), HEIGHT);
 		int age = age(p);
