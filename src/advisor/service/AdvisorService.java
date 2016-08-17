@@ -26,6 +26,8 @@ import recipestorage.service.Recipe;
 
 @WebService
 public class AdvisorService  implements AdvisorServiceInterface{
+	private static final String CAL_CALC_URL = "https://isdemm-calcalc.herokuapp.com/harris-benedict/bmr";
+
 	private static final Logger logger = LogManager.getFormatterLogger("AdvisorService");
 
 	private static final double PAL_LOW = 1.2;
@@ -222,9 +224,10 @@ public class AdvisorService  implements AdvisorServiceInterface{
 	}
 	
 	private double recommendedIntake(char sex, double weight, double height_in_cm, int age){
+		logger.debug("Getting recommended intake");
 		ClientConfig clientConfig = new ClientConfig();
         Client client = ClientBuilder.newClient(clientConfig);
-        WebTarget service = client.target("http://localhost:6200/harris-benedict/bmr");
+        WebTarget service = client.target(CAL_CALC_URL);
         
         service = service
         		.queryParam("sex", sex)
