@@ -30,24 +30,6 @@ public interface RecipeOperation {
 
     /**
      * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.util.List<recipestorage.service.Recipe>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findRecipe", targetNamespace = "http://service.recipe/", className = "recipe.service.FindRecipe")
-    @ResponseWrapper(localName = "findRecipeResponse", targetNamespace = "http://service.recipe/", className = "recipe.service.FindRecipeResponse")
-    @Action(input = "http://service.recipe/RecipeOperation/findRecipeRequest", output = "http://service.recipe/RecipeOperation/findRecipeResponse")
-    public List<Recipe> findRecipe(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns recipestorage.service.Recipe
@@ -99,6 +81,24 @@ public interface RecipeOperation {
         Ingredient arg1,
         @WebParam(name = "arg2", targetNamespace = "")
         Double arg2);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<recipestorage.service.Recipe>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findRecipe", targetNamespace = "http://service.recipe/", className = "recipe.service.FindRecipe")
+    @ResponseWrapper(localName = "findRecipeResponse", targetNamespace = "http://service.recipe/", className = "recipe.service.FindRecipeResponse")
+    @Action(input = "http://service.recipe/RecipeOperation/findRecipeRequest", output = "http://service.recipe/RecipeOperation/findRecipeResponse")
+    public List<Recipe> findRecipe(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
     /**
      * 

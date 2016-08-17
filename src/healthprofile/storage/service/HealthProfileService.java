@@ -45,16 +45,16 @@ public interface HealthProfileService {
      * 
      * @param arg0
      * @return
-     *     returns java.lang.Integer
+     *     returns java.util.List<healthprofile.storage.service.Measure>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "createPerson", targetNamespace = "http://service.storage.healthprofile/", className = "healthprofile.storage.service.CreatePerson")
-    @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://service.storage.healthprofile/", className = "healthprofile.storage.service.CreatePersonResponse")
-    @Action(input = "http://service.storage.healthprofile/HealthProfileService/createPersonRequest", output = "http://service.storage.healthprofile/HealthProfileService/createPersonResponse")
-    public Integer createPerson(
+    @RequestWrapper(localName = "getHealthProfile", targetNamespace = "http://service.storage.healthprofile/", className = "healthprofile.storage.service.GetHealthProfile")
+    @ResponseWrapper(localName = "getHealthProfileResponse", targetNamespace = "http://service.storage.healthprofile/", className = "healthprofile.storage.service.GetHealthProfileResponse")
+    @Action(input = "http://service.storage.healthprofile/HealthProfileService/getHealthProfileRequest", output = "http://service.storage.healthprofile/HealthProfileService/getHealthProfileResponse")
+    public List<Measure> getHealthProfile(
         @WebParam(name = "arg0", targetNamespace = "")
-        Person arg0);
+        Integer arg0);
 
     /**
      * 
@@ -88,6 +88,21 @@ public interface HealthProfileService {
     public Measure updateMeasure(
         @WebParam(name = "arg0", targetNamespace = "")
         Measure arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.Integer
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "createPerson", targetNamespace = "http://service.storage.healthprofile/", className = "healthprofile.storage.service.CreatePerson")
+    @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://service.storage.healthprofile/", className = "healthprofile.storage.service.CreatePersonResponse")
+    @Action(input = "http://service.storage.healthprofile/HealthProfileService/createPersonRequest", output = "http://service.storage.healthprofile/HealthProfileService/createPersonResponse")
+    public Integer createPerson(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Person arg0);
 
     /**
      * 
@@ -127,20 +142,5 @@ public interface HealthProfileService {
         XMLGregorianCalendar arg2,
         @WebParam(name = "arg3", targetNamespace = "")
         XMLGregorianCalendar arg3);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<healthprofile.storage.service.Measure>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getHealthProfile", targetNamespace = "http://service.storage.healthprofile/", className = "healthprofile.storage.service.GetHealthProfile")
-    @ResponseWrapper(localName = "getHealthProfileResponse", targetNamespace = "http://service.storage.healthprofile/", className = "healthprofile.storage.service.GetHealthProfileResponse")
-    @Action(input = "http://service.storage.healthprofile/HealthProfileService/getHealthProfileRequest", output = "http://service.storage.healthprofile/HealthProfileService/getHealthProfileResponse")
-    public List<Measure> getHealthProfile(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
 
 }
